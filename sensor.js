@@ -6,6 +6,7 @@ class Sensor{
         this.raySpread=Math.PI/2;
 
         this.rays=[];
+        this.readings=[];
     }
 
     update(roadBorders,traffic){
@@ -13,12 +14,12 @@ class Sensor{
         this.readings=[];
         for(let i=0;i<this.rays.length;i++){
             this.readings.push(
-                this.#getReading(this.ray[i],roadBorders,traffic)
+                this.#getReading(this.rays[i],roadBorders,traffic)
             );
         }
     }
 
-    #getReading(ray, roadBorders,traffic){
+    #getReading(ray,roadBorders,traffic){
         let touches=[];
 
         for(let i=0;i<roadBorders.length;i++){
